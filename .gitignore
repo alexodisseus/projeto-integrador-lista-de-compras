@@ -1,0 +1,29 @@
+# Build
+/target/
+
+# IDEs
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# Sistema Operacional
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+
+# Maven
+/logs/
+*.mvn/
+mvnw
+mvnw.cmd
+
+# Outras pastas desnecessárias
+bin/
+*.bak
