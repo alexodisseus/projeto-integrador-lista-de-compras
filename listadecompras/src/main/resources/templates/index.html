@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<head>
+    <title>Login - Lista de Compras</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Login</h1>
+    
+    <form th:action="@{/login}" method="post">
+        <label for="login">Usuário:</label>
+        <input type="text" name="login" required />
+        <br>
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" required />
+        <br>
+        <button type="submit">Entrar</button>
+    </form>
+
+    <p th:if="${param.erro}">Usuário ou senha inválidos!</p>
+</body>
+</html>

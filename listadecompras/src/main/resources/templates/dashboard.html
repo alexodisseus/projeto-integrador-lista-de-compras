@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Lista de Compras</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h2>Bem-vindo, <span th:text="${usuario.login}">Usuário</span>!</h2>
+
+    <h3>Suas listas de compras:</h3>
+    <ul>
+        <li th:each="lista : ${listas}">
+            <a th:href="@{/listas/view(id=${lista.id})}">
+                <strong th:text="${lista.nome}">Nome</strong>
+            </a> —
+            <span th:text="${lista.descricao}">Descrição</span> —
+            <em th:text="${lista.data}">Data</em>
+        </li>
+    </ul>
+
+    <ul>
+        <li><a href="/nova-lista">Criar Nova Lista</a></li>
+        <li><a href="/logout">Sair</a></li>
+    </ul>
+</body>
+</html>

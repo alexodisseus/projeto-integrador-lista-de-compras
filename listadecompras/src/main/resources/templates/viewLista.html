@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes da Lista</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h2 th:text="${lista.nome}">Nome da Lista</h2>
+
+    <p><strong>Descrição:</strong> <span th:text="${lista.descricao}">Descrição</span></p>
+    <p><strong>Data de criação:</strong> <span th:text="${lista.data}">Data</span></p>
+
+    <h3>Itens:</h3>
+    <ul th:if="${#lists.isEmpty(lista.itens)}">
+        <li>Nenhum item cadastrado ainda.</li>
+    </ul>
+    <ul th:each="item : ${lista.itens}">
+        <li>
+            <strong th:text="${item.nome}">Nome do Item</strong> — 
+            <span th:text="${item.quantidade}">Qtd</span>
+            <span th:text="${item.unidade}">Unidade</span>
+            <a th:href="@{/itens/editar(id=${item.id})}">Editar</a>
+
+        </li>
+    </ul>
+
+    <h3>Adicionar novo item:</h3>
+    <form th:action="@{/itens/adicionar}" method="post">
+        <input type="hidden" name="listaId" th:value="${lista.id}" />
+
+        <label>Nome:</label>
+        <input type="text" name="nome" required><br><br>
+
+        <label>Quantidade:</label>
+        <input type="number" name="quantidade" required><br><br>
+
+        <label>Unidade:</label>
+        <input type="text" name="unidade" required><br><br>
+
+        <button type="submit">Adicionar Item</button>
+    </form>
+
+    <br>
+    <a href="/listas/dashboard">Voltar ao Dashboard</a>
+</body>
+</html>

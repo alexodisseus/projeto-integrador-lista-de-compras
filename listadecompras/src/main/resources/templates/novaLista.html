@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Criar Nova Lista</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h2>Criar Nova Lista</h2>
+    <form action="/listas/nova" method="post">
+        <label>Nome da Lista:</label>
+        <input type="text" name="nome" required><br><br>
+
+        <label>Descrição:</label><br>
+        <textarea name="descricao" rows="4" cols="40" required></textarea><br><br>
+
+        <button type="submit">Criar Lista</button>
+    </form>
+    <br>
+    <a href="/listas/dashboard">Voltar ao Menu</a>
+</body>
+</html>
